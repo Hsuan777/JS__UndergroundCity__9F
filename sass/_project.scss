@@ -1,0 +1,83 @@
+$number: 19;
+body {
+  background-color: #5858B9;
+}
+.custom {
+  &--height {
+    height: 100vh;
+  }
+}
+.circleLottery {
+  position: relative;
+  width: 540px;
+  height: 540px;
+  background-color: map-get($theme-colors, "secondary");
+  border-radius: 50%;
+  border: 20px map-get($theme-colors, "thirdDarken") solid ;
+  // JS 控制旋轉角度
+  transform: rotate(-9deg) ;
+  overflow: hidden;
+  &::before {
+    position: absolute;
+    content: "PRESS";
+    text-align: center;
+    line-height: 100px;
+    width: 105px;
+    height: 105px;
+    background-color: map-get($theme-colors, "thirdDarken");
+    color: map-get($theme-colors, "primary");
+    font-size: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(9deg);
+    z-index: 9;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 35.5%;
+    left: 51.5%;
+    transform: translate(-51.5%, -35.5%) rotate(9deg);
+    z-index: 9;
+    width: 128px;
+    height: 210px;
+    background-image: url("../img/hand.svg");
+    background-repeat: no-repeat;
+  }
+  &:hover::before {
+    background-color: red;
+    color:white;
+  }
+  &__prizeBlcok {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0%;
+    left: 50%;
+    transform-origin: left bottom;
+    clip-path: polygon(33% 0%, 0% 0%, 0% 100%);
+    &:nth-child(odd) {
+      // 深藍色
+      background-color: map-get($theme-colors, "third");
+      color: white;
+    }
+    &:nth-child(even) {
+      // 淺粉色
+      background-color: map-get($theme-colors, "secondary");
+      color: black;
+    }
+  }
+  &__prizeContent {
+    transform: rotate(10deg) ;
+    font-size: 16px;
+  }
+}
+
+// 角度 = 360 / 區塊數量
+@for $i from 0 through $number {
+  .circleLottery__prizeBlcok:nth-child(#{$i+1}) {
+    transform: rotate((360deg/($number+1)) * $i);
+  }
+}
