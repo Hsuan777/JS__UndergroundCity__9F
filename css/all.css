@@ -9641,6 +9641,7 @@ fieldset:disabled .btn {
 
 body {
   background-color: #5858B9;
+  overflow: hidden;
 }
 
 .custom--height {
@@ -9655,43 +9656,8 @@ body {
   border-radius: 50%;
   border: 20px #1F1172 solid;
   transform: rotate(-9deg);
+  transition: 3s;
   overflow: hidden;
-}
-
-.circleLottery::before {
-  position: absolute;
-  content: "PRESS";
-  text-align: center;
-  line-height: 100px;
-  width: 105px;
-  height: 105px;
-  background-color: #1F1172;
-  color: #FF00BA;
-  font-size: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(9deg);
-  z-index: 9;
-}
-
-.circleLottery::after {
-  position: absolute;
-  content: "";
-  top: 35.5%;
-  left: 51.5%;
-  transform: translate(-51.5%, -35.5%) rotate(9deg);
-  z-index: 9;
-  width: 128px;
-  height: 210px;
-  background-image: url("../img/hand.svg");
-  background-repeat: no-repeat;
-}
-
-.circleLottery:hover::before {
-  background-color: red;
-  color: white;
 }
 
 .circleLottery__prizeBlcok {
@@ -9717,6 +9683,31 @@ body {
 .circleLottery__prizeContent {
   transform: rotate(10deg);
   font-size: 16px;
+}
+
+.circleLottery__btn {
+  position: absolute;
+  line-height: 100px;
+  width: 105px;
+  height: 105px;
+  background-color: #1F1172;
+  color: #FF00BA;
+  font-size: 30px;
+  border-radius: 50%;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+  z-index: 9;
+  outline: none;
+}
+
+.circleLottery__hand {
+  top: 36%;
+  left: 50%;
+  transition: 3s;
+  transform-origin: center 75%;
+  transform: translate(-50%, -36%);
+  z-index: 2;
 }
 
 .circleLottery__prizeBlcok:nth-child(1) {

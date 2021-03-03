@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/all.css">
+  <style id="js-htmlStyle"></style>
   <title>Document</title>
 </head>
 <body>
   <main class="d-flex justify-content-center align-items-center custom--height">
-    <ul class="circleLottery list-unstyled">
-    
-    </ul>
+    <div class="position-relative">
+      <!-- 轉盤 -->
+      <ul class="js-circleLottery circleLottery list-unstyled"></ul>
+      <!-- 按鈕 -->
+      <input type="button" value="PRESS" class="js-circleLottery__btn circleLottery__btn">
+      <!-- 指針 -->
+      <img src="img/hand.svg" alt="" class="js-hand circleLottery__hand position-absolute">
+    </div>
   </main>
   <script src="js/all.js"></script>
 </body>

@@ -1,6 +1,7 @@
 $number: 19;
 body {
   background-color: #5858B9;
+  overflow: hidden; 
 }
 .custom {
   &--height {
@@ -14,42 +15,9 @@ body {
   background-color: map-get($theme-colors, "secondary");
   border-radius: 50%;
   border: 20px map-get($theme-colors, "thirdDarken") solid ;
-  // JS 控制旋轉角度
   transform: rotate(-9deg) ;
+  transition: 3s;
   overflow: hidden;
-  &::before {
-    position: absolute;
-    content: "PRESS";
-    text-align: center;
-    line-height: 100px;
-    width: 105px;
-    height: 105px;
-    background-color: map-get($theme-colors, "thirdDarken");
-    color: map-get($theme-colors, "primary");
-    font-size: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(9deg);
-    z-index: 9;
-  }
-  &::after {
-    position: absolute;
-    content: "";
-    top: 35.5%;
-    left: 51.5%;
-    transform: translate(-51.5%, -35.5%) rotate(9deg);
-    z-index: 9;
-    width: 128px;
-    height: 210px;
-    background-image: url("../img/hand.svg");
-    background-repeat: no-repeat;
-  }
-  &:hover::before {
-    background-color: red;
-    color:white;
-  }
   &__prizeBlcok {
     position: absolute;
     width: 50%;
@@ -72,6 +40,29 @@ body {
   &__prizeContent {
     transform: rotate(10deg) ;
     font-size: 16px;
+  }
+  &__btn {
+    position: absolute;
+    line-height: 100px;
+    width: 105px;
+    height: 105px;
+    background-color: map-get($theme-colors, "thirdDarken");
+    color: map-get($theme-colors, "primary");
+    font-size: 30px;
+    border-radius: 50%;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    z-index: 9;
+    outline: none;
+  }
+  &__hand {
+    top: 36%;
+    left: 50%;
+    transition: 3s;
+    transform-origin: center 75%;
+    transform: translate(-50%, -36%);
+    z-index: 2;
   }
 }
 

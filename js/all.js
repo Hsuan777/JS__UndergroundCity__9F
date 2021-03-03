@@ -1,8 +1,11 @@
-let prizeListDisplay = document.querySelector('.circleLottery')
+const prizeListDisplay = document.querySelector('.js-circleLottery')
+const circleLottery__btn = document.querySelector('.js-circleLottery__btn')
+const handDisplay = document.querySelector('.js-hand')
 
 const lottery = function () {
   let vm = this
   let prizeListStr = ''
+  let nowDeg = 0
   let setNumber = 20
   this.prize = () => {
     let str = ''
@@ -15,6 +18,12 @@ const lottery = function () {
     prizeListStr = str
     prizeListDisplay.innerHTML = prizeListStr
   }
+  this.start = () => {
+    let newDeg = 30
+    prizeListDisplay.style.transform = `rotate(${ nowDeg + newDeg }deg)`
+    nowDeg += newDeg
+  }
+  vm.prize()
 }
 const newLottery = new lottery()
-newLottery.prize()
+circleLottery__btn.addEventListener('click', newLottery.start) 
